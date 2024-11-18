@@ -1,6 +1,7 @@
 import { Hono } from 'hono'
 import { fetchCodeforcesData } from './platform-services/codeforces'
 import { fetchGeeksForGeeksData } from './platform-services/geeksforgeeks'
+import { serve } from 'some-server-library'
 
 const app = new Hono()
 
@@ -23,3 +24,7 @@ app.get('/fetch/:platform/:username', async (c) => {
 })
 
 export default app
+
+const server = serve(app)
+
+server.listen({ port: 3000 })
