@@ -1,5 +1,5 @@
 
-import express, { response, type Express, type Request, type Response } from 'express'
+import express, { type Express, type Request, type Response } from 'express'
 import { fetchCodeforcesData } from '../platform-services/codeforces'
 import { fetchGeeksForGeeksData } from '../platform-services/geeksforgeeks'
 import { fetchCodeChefData } from '../platform-services/codechef'
