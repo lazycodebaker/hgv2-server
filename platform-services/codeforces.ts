@@ -11,14 +11,21 @@ export async function fetchCodeforcesData(username: string): Promise<any> {
 
     if (data.status === 'OK' && data.result?.length > 0) {
       const user = data.result[0]
+
+      if(user.firstName && user.lastName) {
+        var name = `${user.firstName} ${user.lastName}`
+      } else {
+        var name = 'N/A'
+      }
+      
       return {
-        name: user.name,
-        rating: user.rating,
-        handle: user.handle,
-        contribution: user.contribution,
-        rank: user.rank,
-        maxRating: user.maxRating,
-        maxRank: user.maxRank,
+        name: name,
+        rating: user.rating ?? 0,
+        handle: user.handle ?? 'N/A',
+        contribution: user.contribution ?? 0,
+        rank: user.rank ?? 'N/A',
+        maxRating: user.maxRating ?? 0,
+        maxRank: user.maxRank ?? 'N/A',
       }
     } else {
         return { message: 'User not found' }
